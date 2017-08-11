@@ -1,4 +1,5 @@
-FROM alpine:3.4
-RUN apk --no-cache add dnsmasq
+FROM alpine:latest
+RUN set -x && \
+    apk --no-cache --update add dnsmasq
 EXPOSE 53 53/udp
 ENTRYPOINT ["dnsmasq", "-k"]
